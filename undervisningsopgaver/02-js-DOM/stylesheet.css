@@ -1,0 +1,33 @@
+
+img {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    border: solid black 1px;
+    margin: 5px;
+}
+
+
+section {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+#article1, #article2 {
+    border: solid black 1px;
+    margin: 20px;
+}
+
+footer {
+    text-align: center;
+    
+}
+
+
+@media (min-width: 800px) {
+    section {
+        display: flex;
+    }
+}
