@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Titel</h1>
+    </header>
+
+    <main>
+      <h2>Undertitel</h2>
+
+      <section>
+        <article>
+          <img src="dane-deaner-XAqTc-LLm6A-unsplash.jpg" alt="nature" />
+          <h3>Article 1</h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt
+            explicabo quam animi beatae quidem atque ipsum mollitia fugit alias
+            sequi. Quos delectus amet eaque, aut sit natus eum illo in. Lorem
+            ipsum dolor, sit amet consectetur adipisicing elit. Deserunt
+            explicabo quam animi beatae quidem atque ipsum mollitia fugit alias
+            sequi. Quos delectus amet eaque, aut sit natus eum illo in.
+          </p>
+        </article>
+
+        <article>
+          <img src="dane-deaner-XAqTc-LLm6A-unsplash.jpg" alt="nature" />
+          <h3>Article 2</h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt
+            explicabo quam animi beatae quidem atque ipsum mollitia fugit alias
+            sequi. Quos delectus amet eaque, aut sit natus eum illo in. Lorem
+            ipsum dolor, sit amet consectetur adipisicing elit. Deserunt
+            explicabo quam animi beatae quidem atque ipsum mollitia fugit alias
+            sequi. Quos delectus amet eaque, aut sit natus eum illo in.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>This is the footer</p>
+    </footer>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", start);
+
+      // her defineres teksterne som konstanter (const) via javascript
+
+      function start() {
+        const overskrift = document.querySelector("h1");
+        overskrift.textContent;
+        console.log(overskrift.textContent);
+
+        const underOverskrift = document.querySelector("h2");
+        underOverskrift.textContent;
+        console.log(underOverskrift.textContent);
+
+        const lilleOverskrift = document.querySelector("h3");
+        lilleOverskrift.textContent;
+        console.log(lilleOverskrift.textContent);
+
+        const tekst = document.querySelector("article:nth-child(1) p");
+        tekst.textContent;
+        console.log(tekst.textContent);
+
+        const lilleOverskrift2 = document.querySelector(
+          "article:nth-child(2) h3"
+        );
+        lilleOverskrift2.textContent;
+        console.log(lilleOverskrift2.textContent);
+
+        const tekst2 = document.querySelector("article:nth-child(2) p");
+        tekst2.textContent;
+        console.log(tekst2.textContent);
+
+        const footer = document.querySelector("footer");
+        footer.textContent;
+        console.log(footer.textContent);
+
+        // her udskiftes tekst med noget andet tekst, så der sættes '=' tegn
+
+        overskrift.textContent = "Billeder";
+
+        //her indsættes et nyt billede via javascript i min første article (første barn/first child)
+
+        const img1 = document.querySelector("article:nth-child(1) img");
+        console.log(img1.src);
+        img1.src = "mick-haupt-uMCP-NReC2c-unsplash.jpg";
+
+        //her indsættes et nyt billede via javascript i min anden article (andet barn/second child)
+        const img2 = document.querySelector("article:nth-child(2) img");
+        console.log(img2.src);
+        img2.src = "mick-haupt-uMCP-NReC2c-unsplash.jpg";
+
+        //udskifter tekst i min første artikel (first child af DOM), og henvender mig til den
+        //ved at skrive det navn jeg kaldte den da jeg definerede den som en const længere oppe.
+        tekst.textContent = "hej med dig din skid";
+
+        //hvis jeg fx gerne med lave et ord med fed skrift kan jeg ikke bare bruge textContent,
+        //da browseren vil opfatte al teksten inde i strengen (string) som tekst.
+        // Istedet skal der bruges innerHTML, så browseren opdatter teksten som html.
+
+        tekst2.innerHTML = "Hej med dig din <b>skid</b>";
+
+        //!!!indsæt et nyt element via javascript !!!
+        //jeg vil gerne lave en ekstra artikel
+        //jeg laver en ekstra artikel således og en ny overskrift h3
+
+        let mainSection = document.querySelector("section");
+
+        let newArticle = document.createElement("article");
+
+        let overskriftNew = document.createElement("h3");
+
+        let overskriftText = document.createTextNode("Article 3");
+
+        overskriftNew.appendChild(overskriftText);
+
+        newArticle.appendChild(overskriftNew);
+
+        mainSection.appendChild(newArticle);
+      }
+    </script>
+
+    <style>
+      @media (min-width: 600px) {
+        section {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+          gap: 10px;
+        }
+      }
+    </style>
+  </body>
+</html>

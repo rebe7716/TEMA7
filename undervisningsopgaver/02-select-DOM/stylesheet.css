@@ -1,33 +1,23 @@
-
 img {
-    width: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 h1 {
-    text-align: center;
-    border: solid black 1px;
-    margin: 5px;
-}
-
-
-section {
-    margin-left: 10vw;
-    margin-right: 10vw;
-}
-
-#article1, #article2 {
-    border: solid black 1px;
-    margin: 20px;
+  text-align: center;
+  border: solid black 1px;
+  margin: 5px;
 }
 
 footer {
-    text-align: center;
-    
+  text-align: center;
 }
 
-
-@media (min-width: 800px) {
-    section {
-        display: flex;
-    }
+article {
+  border: solid black 1px;
+  margin: 2rem;
+  padding: 1rem;
 }
