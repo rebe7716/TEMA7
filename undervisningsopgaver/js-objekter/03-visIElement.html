@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article id="dyr">
+      <h3></h3>
+      <img src="" alt="" />
+      <p>Type:</p>
+      <p>Levested:</p>
+    </article>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", start);
+
+      function start() {
+        // et objekt er en varibel som indeholder flere informationer
+
+        const dyr = {
+          navn: "gris",
+          type: " Pattedyr",
+          billede: "http://mabe-kea.dk/E19/pics/pig.png",
+          levested: "svinefarm",
+        };
+
+        console.log(dyr);
+
+        console.log(
+          `navn: ${dyr.navn} type: ${dyr.type} levested: ${dyr.levested}`
+        );
+
+        const destination = document.querySelector("#dyr");
+
+        const overskrift = document.querySelector(dyr.gris);
+        const type = document.querySelector(dyr.type);
+        const levested = document.querySelector(dyr.levested);
+
+        destination.querySelector("img").src = dyr.billede;
+        destination.querySelector("h3").textContent = dyr.navn;
+
+        destination.querySelector("p").textContent += dyr.type;
+
+        //destination.querySelector("article:nth-child(1) p").textContent +=
+        // dyr.levested;
+      }
+    </script>
+  </body>
+</html>
