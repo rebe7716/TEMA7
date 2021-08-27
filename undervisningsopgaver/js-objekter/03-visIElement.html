@@ -10,8 +10,8 @@
     <article id="dyr">
       <h3></h3>
       <img src="" alt="" />
-      <p>Type:</p>
-      <p>Levested:</p>
+      <p class="type">Type:</p>
+      <p class="levested">Levested:</p>
     </article>
 
     <script>
@@ -24,7 +24,7 @@
           navn: "gris",
           type: " Pattedyr",
           billede: "http://mabe-kea.dk/E19/pics/pig.png",
-          levested: "svinefarm",
+          levested: " Svinefarm",
         };
 
         console.log(dyr);
@@ -42,10 +42,9 @@
         destination.querySelector("img").src = dyr.billede;
         destination.querySelector("h3").textContent = dyr.navn;
 
-        destination.querySelector("p").textContent += dyr.type;
+        destination.querySelector(".type").textContent += dyr.type;
 
-        //destination.querySelector("article:nth-child(1) p").textContent +=
-        // dyr.levested;
+        destination.querySelector(".levested").textContent += dyr.levested;
       }
     </script>
   </body>
