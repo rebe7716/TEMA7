@@ -16,6 +16,7 @@
         <h2 class="navn"></h2>
         <p class="titel"></p>
         <p class="fødselsdag"></p>
+        <p class="email"></p>
       </article>
     </template>
 
@@ -42,9 +43,12 @@
         json.forEach((person) => {
           const klon = template.cloneNode(true);
           klon.querySelector(".billede").src = "faces/" + person.billede;
-          klon.querySelector(".navn").textContent = person.navn;
-          klon.querySelector(".titel").textContent = person.titel;
-          klon.querySelector(".fødselsdag").textContent = person.fødselsdag;
+          klon.querySelector(".navn").textContent =
+            person.fornavn + " " + person.efternavn;
+          klon.querySelector(".titel").textContent = "Titel: " + person.titel;
+          klon.querySelector(".email").textContent = "E-mail: " + person.email;
+          klon.querySelector(".fødselsdag").textContent =
+            "Fødselsdag: " + person.fødselsdag;
           main.appendChild(klon);
         });
       }
