@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bistro Babushka</title>
+  </head>
+
+  <main></main>
+
+  <body>
+    <template>
+      <article>
+        <img src="" alt="" class="billede" />
+        <h2 class="navn"></h2>
+        <p class="kortbeskrivelse"></p>
+        <p class="kategori"></p>
+        <p class="pris"></p>
+      </article>
+    </template>
+
+    <script>
+      const url = "https://babushka-dd8a.restdb.io/rest/menu";
+
+      const options = {
+        headers: {
+          "x-apikey": "600ec2fb1346a1524ff12de4",
+        },
+      };
+
+      async function hentData() {
+        const respons = await fetch(url, options);
+        const json = await respons.json();
+        vis(json);
+      }
+
+      const main = document.querySelector("main");
+      const template = document.querySelector("template").content;
+
+      function vis(json) {
+        console.log(json);
+        json.forEach((ret) => {
+          const klon = template.cloneNode(true);
+          klon.querySelector(".billede").src = "food/" + ret.billede;
+          klon.querySelector(".navn").textContent = ret.navn;
+          klon.querySelector(".kortbeskrivelse").textContent =
+            ret.kortbeskrivelse;
+          klon.querySelector(".pris").textContent = ret.pris;
+          main.appendChild(klon);
+        });
+      }
+
+      hentData();
+    </script>
+  </body>
+</html>
