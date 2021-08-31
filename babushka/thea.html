@@ -1,16 +1,71 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bistro Babushka</title>
+    <title>Bistro Babushka pop up</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 1em;
+      }
+
+      #liste {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 1em;
+        margin: 2em;
+      }
+
+      article {
+        padding: 1em;
+        border: 1px solid;
+        border-radius: 1em;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+        background-color: chocolate;
+      }
+
+      button {
+        font-size: 1.5rem;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .valgt {
+        opacity: 75%;
+        color: goldenrod;
+      }
+
+      #popup {
+        width: 50vw;
+        position: fixed;
+        top: 15vw;
+        left: 25.5vw;
+        display: none;
+      }
+
+      #popup article {
+        background-color: wheat;
+      }
+
+      #popup article .navnp {
+        display: block;
+      }
+    </style>
   </head>
 
   <body>
     <header>
-      <h1>BISTRO BABUSHKA</h1>
-
+      <h1>Bistro Babushka pop up</h1>
       <nav>
         <button data-kategori="alle" class="valgt">Alle</button>
         <button data-kategori="forretter">Forretter</button>
@@ -22,12 +77,10 @@
       <h2>Alle</h2>
     </header>
 
-    <main></main>
-
     <section id="liste"></section>
 
     <template>
-      <article>
+      <article class="person">
         <h2 class="navn"></h2>
         <p class="beskrivelse"></p>
         <img src="" alt="" class="menu-billede" />
@@ -101,7 +154,7 @@
             klon.querySelector(".beskrivelse").textContent =
               retter.kortbeskrivelse;
             klon.querySelector(".menu-billede").src =
-              "food/" + retter.billednavn + "-md.jpg";
+              "images/" + retter.billednavn + "-md.jpg";
 
             //Kalder anonym funktion indeni click, der fører siden over til single view
             klon
@@ -120,9 +173,9 @@
         popup.querySelector(".langbp").textContent = retter.langbeskrivelse;
         popup.querySelector(".oprindelsep").textContent = retter.oprindelse;
         popup.querySelector(".prisp").textContent =
-          "pris: " + retter.pris + " ,-";
+          "pris: " + retter.pris + " DKK";
         popup.querySelector(".billedep").src =
-          "food/" + retter.billednavn + "-md.jpg";
+          "images/" + retter.billednavn + "-md.jpg";
 
         document
           .querySelector("#popup button")
@@ -133,69 +186,5 @@
         popup.style.display = "none";
       }
     </script>
-
-    <style>
-      header {
-        text-align: center;
-        padding: 4rem;
-        background-color: thistle;
-      }
-
-      header h1 {
-        color: seashell;
-      }
-
-      img {
-        max-width: 100%;
-      }
-
-      article {
-        border: solid black 1px;
-        padding: 1.5rem;
-      }
-
-      p {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-
-      p .class {
-        font-weight: 900;
-      }
-
-      #liste {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 3rem;
-        margin: 6rem;
-      }
-
-      /* styling af pop-up vinduet */
-
-      #popup {
-        width: 50vw;
-        position: fixed;
-        top: 15vw;
-        left: 25.5vw;
-        display: none;
-      }
-
-      #popup article {
-        background-color: lavender;
-      }
-
-      #popup article .navnp {
-        display: block;
-      }
-
-      button {
-        font-size: 1.5rem;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
-      .valgt {
-        opacity: 75%;
-        color: slateblue;
-      }
-    </style>
   </body>
 </html>
