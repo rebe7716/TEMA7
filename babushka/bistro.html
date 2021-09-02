@@ -13,7 +13,7 @@
     />
   </head>
 
-  <!-- DENNE HØRER SAMMEN MED SINGLE VIEW POP UP -->
+  <!-- DENNE HØRER SAMMEN MED SINGLE VIEW SEPERAT SIDE -->
 
   <body>
     <header>
@@ -42,7 +42,7 @@
       </article>
     </template>
 
-    <section id="popup">
+    <!-- <section id="popup">
       <article>
         <button>X</button>
         <h2 class="navnp"></h2>
@@ -52,7 +52,7 @@
         <p class="oprindelsep"></p>
         <p class="prisp"></p>
       </article>
-    </section>
+    </section> -->
 
     <script>
       const header = document.querySelector("h2");
@@ -112,35 +112,12 @@
               "food/" + retter.billednavn + "-md.jpg";
 
             //Kalder anonym funktion indeni click, der fører siden over til single view
-            klon
-              .querySelector("article")
-              .addEventListener("click", () => visDetaljer(retter));
+            klon.querySelector("article").addEventListener("click", () => {
+              location.href = "detail-view-single.html?id=" + retter._id;
+            });
             dest.appendChild(klon);
           }
         });
-      }
-
-      //pop up
-
-      function visDetaljer(retter) {
-        console.log(retter);
-        const popup = document.querySelector("#popup");
-        popup.style.display = "block";
-        popup.querySelector(".navnp").textContent = retter.navn;
-        popup.querySelector(".langbp").textContent = retter.langbeskrivelse;
-        popup.querySelector(".oprindelsep").textContent = retter.oprindelse;
-        popup.querySelector(".prisp").textContent =
-          "pris: " + retter.pris + " ,-";
-        popup.querySelector(".billedep").src =
-          "food/" + retter.billednavn + "-md.jpg";
-
-        document
-          .querySelector("#popup button")
-          .addEventListener("click", lukPopup);
-      }
-
-      function lukPopup() {
-        popup.style.display = "none";
       }
     </script>
 
@@ -206,23 +183,6 @@
       }
 
       /* styling af pop-up vinduet */
-
-      #popup {
-        width: 50vw;
-        position: fixed;
-        top: 15vw;
-        left: 25.5vw;
-        display: none;
-      }
-
-      #popup article {
-        background-color: linen;
-        border-radius: 20px;
-      }
-
-      #popup article .navnp {
-        display: block;
-      }
 
       button {
         font-size: 1.3rem;
